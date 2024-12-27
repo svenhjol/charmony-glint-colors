@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "svenhjol.charmony.glint_colors.client.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "${refmap_file}",
+  "plugin": "svenhjol.charmony.glint_colors.client.mixins.ClientMixinConfig",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "glint_colors.EquipmentLayerRendererMixin",
+    "glint_colors.ItemModelsMixin",
+    "glint_colors.LayerRenderStateMixin",
+    "glint_colors.RenderBuffersMixin",
+    "glint_colors.RenderTypeMixin"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "charmony-glint-colors",
+  "version": "${mod_version}",
+
+  "name": "Charmony Glint Colors",
+  "description": "Description",
+  "authors": [
+    "svenhjol"
+  ],
+  "icon": "assets/charmony-glint-colors/textures/gui/sprites/icon.png",
+  "license": "MIT",
+  "environment": "*",
+  "mixins": [
+    "charmony-glint-colors.client.mixins.json"
+  ],
+  "accessWidener": "charmony-glint-colors.accesswidener",
+
+  "entrypoints": {
+    "main": [
+      "svenhjol.charmony.glint_colors.common.CommonInitializer"
+    ],
+    "client": [
+      "svenhjol.charmony.glint_colors.client.ClientInitializer"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "*",
+    "java": ">=21",
+    "fabric-api": "*",
+    "charmony": "${charmony_version}",
+    "charmony-api": "${api_version}"
+  },
+
+  "contact": {
+    "homepage": "https://charmony.work",
+    "sources": "https://github.com/svenhjol/${mod_id}"
+  }
+}

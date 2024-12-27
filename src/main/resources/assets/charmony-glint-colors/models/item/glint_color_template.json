@@ -1,0 +1,5 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "charmony-glint-colors:item/glint_color_template"
+  }}
