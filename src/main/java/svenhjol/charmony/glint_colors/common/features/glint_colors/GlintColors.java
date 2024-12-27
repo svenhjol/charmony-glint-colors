@@ -15,12 +15,14 @@ import java.util.function.BooleanSupplier;
 public final class GlintColors extends SidedFeature {
     public final Registers registers;
     public final Handlers handlers;
+    public final Providers providers;
 
     public GlintColors(Mod mod) {
         super(mod);
 
         registers = new Registers(this);
         handlers = new Handlers(this);
+        providers = new Providers(this);
     }
 
     public static GlintColors feature() {
