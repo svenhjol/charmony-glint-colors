@@ -28,7 +28,6 @@ public final class Handlers extends Setup<GlintColors> {
     public final Map<DyeColor, RenderType> ARMOR_ENTITY_GLINT = new HashMap<>();
 
     private SequencedMap<RenderType, ByteBufferBuilder> builders;
-    private ItemStack targetStack;
     private @Nullable DyeColor targetColor;
 
     public static boolean initialized = false;
