@@ -19,6 +19,9 @@
     ],
     "client": [
         "svenhjol.charmony.glint_colors.client.ClientInitializer"
+    ],
+    "modmenu": [
+        "svenhjol.charmony.glint_colors.integration.ModMenuPlugin"
     ]
   },
 
