@@ -2,7 +2,6 @@ package svenhjol.charmony.glint_colors.common.features.glint_color_templates;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import svenhjol.charmony.glint_colors.GlintColorsMod;
 import svenhjol.charmony.core.annotations.Configurable;
 import svenhjol.charmony.core.annotations.FeatureDefinition;
 import svenhjol.charmony.core.base.Mod;
@@ -33,7 +32,7 @@ public final class GlintColorTemplates extends SidedFeature {
     }
 
     public static GlintColorTemplates feature() {
-        return GlintColorsMod.instance().sidedFeature(GlintColorTemplates.class);
+        return Mod.getSidedFeature(GlintColorTemplates.class);
     }
 
     public ResourceLocation lootTable() {

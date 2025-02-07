@@ -1,6 +1,5 @@
 package svenhjol.charmony.glint_colors.common.features.glint_colors;
 
-import svenhjol.charmony.glint_colors.GlintColorsMod;
 import svenhjol.charmony.core.annotations.FeatureDefinition;
 import svenhjol.charmony.core.base.Environment;
 import svenhjol.charmony.core.base.Mod;
@@ -26,7 +25,7 @@ public final class GlintColors extends SidedFeature {
     }
 
     public static GlintColors feature() {
-        return GlintColorsMod.instance().sidedFeature(GlintColors.class);
+        return Mod.getSidedFeature(GlintColors.class);
     }
 
     @Override
