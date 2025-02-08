@@ -8,7 +8,7 @@ public final class Common {
     public final Registers registers;
 
     public Common() {
-        var feature = GlintColorsMod.instance().sidedFeature(GlintColorTemplates.class);
+        var feature = GlintColorsMod.getSidedFeature(GlintColorTemplates.class);
         registers = feature.registers;
     }
 }

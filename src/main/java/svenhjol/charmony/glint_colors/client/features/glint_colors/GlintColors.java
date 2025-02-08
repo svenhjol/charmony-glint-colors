@@ -1,7 +1,6 @@
 package svenhjol.charmony.glint_colors.client.features.glint_colors;
 
 import net.minecraft.world.item.DyeColor;
-import svenhjol.charmony.glint_colors.GlintColorsMod;
 import svenhjol.charmony.core.annotations.Configurable;
 import svenhjol.charmony.core.annotations.FeatureDefinition;
 import svenhjol.charmony.core.base.Mod;
@@ -36,7 +35,7 @@ public final class GlintColors extends SidedFeature {
     }
 
     public static GlintColors feature() {
-        return GlintColorsMod.instance().sidedFeature(GlintColors.class);
+        return Mod.getSidedFeature(GlintColors.class);
     }
 
     public Optional<DyeColor> glintColorOverride() {
