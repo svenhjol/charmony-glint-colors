@@ -3,6 +3,7 @@ package svenhjol.charmony.glint_colors.client.features.glint_colors;
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -75,16 +76,10 @@ public final class Handlers extends Setup<GlintColors> {
 
     public RenderType createGlint(String color, ResourceLocation texture) {
         RenderType renderLayer = RenderType.create("glint_" + color,
-            DefaultVertexFormat.POSITION_TEX,
-            VertexFormat.Mode.QUADS,
             1536,
+            RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setShaderState(RenderStateShard.RENDERTYPE_GLINT_SHADER)
                 .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
-                .setWriteMaskState(RenderStateShard.COLOR_WRITE)
-                .setCullState(RenderStateShard.NO_CULL)
-                .setDepthTestState(RenderStateShard.EQUAL_DEPTH_TEST)
-                .setTransparencyState(RenderStateShard.GLINT_TRANSPARENCY)
                 .setTexturingState(RenderStateShard.GLINT_TEXTURING)
                 .createCompositeState(false));
 
@@ -94,16 +89,10 @@ public final class Handlers extends Setup<GlintColors> {
 
     public RenderType createGlintTranslucent(String color, ResourceLocation texture) {
         RenderType renderLayer = RenderType.create("glint_translucent_" + color,
-            DefaultVertexFormat.POSITION_TEX,
-            VertexFormat.Mode.QUADS,
             1536,
+            RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setShaderState(RenderStateShard.RENDERTYPE_GLINT_TRANSLUCENT_SHADER)
                 .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
-                .setWriteMaskState(RenderStateShard.COLOR_WRITE)
-                .setCullState(RenderStateShard.NO_CULL)
-                .setDepthTestState(RenderStateShard.EQUAL_DEPTH_TEST)
-                .setTransparencyState(RenderStateShard.GLINT_TRANSPARENCY)
                 .setTexturingState(RenderStateShard.GLINT_TEXTURING)
                 .setOutputState(RenderStateShard.ITEM_ENTITY_TARGET)
                 .createCompositeState(false));
@@ -114,16 +103,10 @@ public final class Handlers extends Setup<GlintColors> {
 
     public RenderType createEntityGlint(String color, ResourceLocation texture) {
         RenderType renderLayer = RenderType.create("entity_glint_" + color,
-            DefaultVertexFormat.POSITION_TEX,
-            VertexFormat.Mode.QUADS,
             1536,
+            RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setShaderState(RenderStateShard.RENDERTYPE_ENTITY_GLINT_SHADER)
                 .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
-                .setWriteMaskState(RenderStateShard.COLOR_WRITE)
-                .setCullState(RenderStateShard.NO_CULL)
-                .setDepthTestState(RenderStateShard.EQUAL_DEPTH_TEST)
-                .setTransparencyState(RenderStateShard.GLINT_TRANSPARENCY)
                 .setTexturingState(RenderStateShard.ENTITY_GLINT_TEXTURING)
                 .setOutputState(RenderStateShard.ITEM_ENTITY_TARGET)
                 .createCompositeState(false));
@@ -134,16 +117,10 @@ public final class Handlers extends Setup<GlintColors> {
 
     public RenderType createArmorEntityGlint(String color, ResourceLocation texture) {
         RenderType renderLayer = RenderType.create("armor_entity_glint_" + color,
-            DefaultVertexFormat.POSITION_TEX,
-            VertexFormat.Mode.QUADS,
             1536,
+            RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setShaderState(RenderStateShard.RENDERTYPE_ARMOR_ENTITY_GLINT_SHADER)
                 .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
-                .setWriteMaskState(RenderStateShard.COLOR_WRITE)
-                .setCullState(RenderStateShard.NO_CULL)
-                .setDepthTestState(RenderStateShard.EQUAL_DEPTH_TEST)
-                .setTransparencyState(RenderStateShard.GLINT_TRANSPARENCY)
                 .setTexturingState(RenderStateShard.ENTITY_GLINT_TEXTURING)
                 .setLayeringState(RenderStateShard.VIEW_OFFSET_Z_LAYERING)
                 .createCompositeState(false));
@@ -179,6 +156,5 @@ public final class Handlers extends Setup<GlintColors> {
     private DyeColor itemOrOverrideColor() {
         var override = GlintColors.feature().glintColorOverride();
         return override.orElseGet(() -> targetColor);
-//        return override.orElseGet(() -> feature().common.get().handlers.get(targetStack));
     }
 }
