@@ -56,7 +56,7 @@ public final class Handlers extends Setup<GlintColors> {
 
             if (dyeColor.equals(DyeColor.PURPLE)) {
                 itemTexture = ItemRenderer.ENCHANTED_GLINT_ITEM;
-                entityTexture = ItemRenderer.ENCHANTED_GLINT_ENTITY;
+                entityTexture = ItemRenderer.ENCHANTED_GLINT_ARMOR;
             } else {
                 itemTexture = GlintColorsMod.id("textures/misc/enchanted_glints/" + colorName + "_glint.png");
                 entityTexture = GlintColorsMod.id("textures/misc/enchanted_glints/" + colorName + "_glint.png");
