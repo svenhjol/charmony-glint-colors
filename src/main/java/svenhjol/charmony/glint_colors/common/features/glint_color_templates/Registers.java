@@ -1,6 +1,7 @@
 package svenhjol.charmony.glint_colors.common.features.glint_color_templates;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableSource;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -58,7 +59,7 @@ public final class Registers extends Setup<GlintColorTemplates> {
         };
     }
 
-    private void handleLootTableModify(ResourceKey<LootTable> key, LootTable.Builder builder, net.fabricmc.fabric.api.loot.v3.LootTableSource source, HolderLookup.Provider provider) {
+    private void handleLootTableModify(ResourceKey<LootTable> key, LootTable.Builder builder, LootTableSource source, HolderLookup.Provider provider) {
         if (source.isBuiltin() && key == lootTable.get()) {
             var pool = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
