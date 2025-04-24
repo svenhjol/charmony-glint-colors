@@ -11,10 +11,10 @@
       }
     },
     "title": {
-      "translate": "advancements.charmony.glint_colors.title"
+      "translate": "advancements.charmony-glint-colors.glint_colors.title"
     },
     "description": {
-      "translate": "advancements.charmony.glint_colors.description"
+      "translate": "advancements.charmony-glint-colors.glint_colors.description"
     },
     "frame": "task",
     "show_toast": false,

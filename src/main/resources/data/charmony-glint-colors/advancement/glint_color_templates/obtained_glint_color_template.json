@@ -1,14 +1,14 @@
 {
-  "parent": "charmony:glint_colors",
+  "parent": "charmony-glint-colors:root",
   "display": {
     "icon": {
       "id": "charmony-glint-colors:glint_color_template"
     },
     "title": {
-      "translate": "advancements.charmony.obtained_glint_color_template.title"
+      "translate": "advancements.charmony-glint-colors.obtained_glint_color_template.title"
     },
     "description": {
-      "translate": "advancements.charmony.obtained_glint_color_template.description"
+      "translate": "advancements.charmony-glint-colors.obtained_glint_color_template.description"
     },
     "frame": "task",
     "show_toast": true,
