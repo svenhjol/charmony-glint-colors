@@ -17,8 +17,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import svenhjol.charmony.core.base.Setup;
 import svenhjol.charmony.core.common.CommonRegistry;
-import svenhjol.charmony.core.events.SmithingTableEvents;
-import svenhjol.charmony.core.events.SmithingTableEvents.SmithingTableInstance;
+import svenhjol.charmony.api.events.SmithingTableEvents;
+import svenhjol.charmony.api.events.SmithingTableEvents.SmithingTableInstance;
 import svenhjol.charmony.glint_colors.GlintColorsMod;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.GlintColors;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.Tags;
