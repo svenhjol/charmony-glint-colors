@@ -6,7 +6,7 @@ import svenhjol.charmony.core.common.CommonRegistry;
 
 import java.util.function.Supplier;
 
-public final class Registers extends Setup<GlintColors> {
+public class Registers extends Setup<GlintColors> {
     public final Supplier<DataComponentType<GlintColorData>> data;
 
     public Registers(GlintColors feature) {

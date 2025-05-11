@@ -5,7 +5,7 @@ import net.minecraft.world.item.Items;
 import svenhjol.charmony.core.base.Setup;
 import svenhjol.charmony.core.client.ClientRegistry;
 
-public final class Registers extends Setup<GlintColorTemplates> {
+public class Registers extends Setup<GlintColorTemplates> {
     public Registers(GlintColorTemplates feature) {
         super(feature);
     }

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public final class Registers extends Setup<GlintColorTemplates> {
+public class Registers extends Setup<GlintColorTemplates> {
     public final List<ResourceLocation> emptyDyes = new ArrayList<>();
     public final Supplier<TemplateItem> item;
     public final Supplier<ResourceKey<LootTable>> lootTable;

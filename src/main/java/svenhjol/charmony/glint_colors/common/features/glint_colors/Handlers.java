@@ -6,7 +6,7 @@ import svenhjol.charmony.core.base.Setup;
 
 import javax.annotation.Nullable;
 
-public final class Handlers extends Setup<GlintColors> {
+public class Handlers extends Setup<GlintColors> {
     public Handlers(GlintColors feature) {
         super(feature);
     }
@@ -27,6 +27,7 @@ public final class Handlers extends Setup<GlintColors> {
     /**
      * Get the enchanted item's glint color.
      */
+    @SuppressWarnings("DataFlowIssue")
     @Nullable
     public DyeColor get(@Nullable ItemStack stack) {
         if (has(stack)) {

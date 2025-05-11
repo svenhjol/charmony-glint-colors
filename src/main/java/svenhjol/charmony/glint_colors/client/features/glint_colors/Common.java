@@ -4,7 +4,7 @@ import svenhjol.charmony.core.base.Mod;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.GlintColors;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.Handlers;
 
-public final class Common {
+public class Common {
     public final Handlers handlers;
 
     public Common() {

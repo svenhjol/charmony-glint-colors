@@ -4,7 +4,7 @@ import net.minecraft.world.entity.player.Player;
 import svenhjol.charmony.core.base.Setup;
 import svenhjol.charmony.core.helpers.AdvancementHelper;
 
-public final class Advancements extends Setup<GlintColorTemplates> {
+public class Advancements extends Setup<GlintColorTemplates> {
     public Advancements(GlintColorTemplates feature) {
         super(feature);
     }

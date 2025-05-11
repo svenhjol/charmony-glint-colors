@@ -4,7 +4,7 @@ import svenhjol.charmony.core.base.Mod;
 import svenhjol.charmony.glint_colors.common.features.glint_color_templates.GlintColorTemplates;
 import svenhjol.charmony.glint_colors.common.features.glint_color_templates.Registers;
 
-public final class Common {
+public class Common {
     public final Registers registers;
 
     public Common() {

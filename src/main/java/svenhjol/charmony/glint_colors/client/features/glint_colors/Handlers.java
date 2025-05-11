@@ -1,8 +1,6 @@
 package svenhjol.charmony.glint_colors.client.features.glint_colors;
 
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
@@ -20,7 +18,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.SequencedMap;
 
-public final class Handlers extends Setup<GlintColors> {
+public class Handlers extends Setup<GlintColors> {
     public final Map<DyeColor, ResourceLocation> ITEM_TEXTURES = new HashMap<>();
     public final Map<DyeColor, ResourceLocation> ENTITY_TEXTURES = new HashMap<>();
     public final Map<DyeColor, RenderType> GLINT = new HashMap<>();
