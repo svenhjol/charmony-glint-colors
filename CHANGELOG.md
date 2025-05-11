@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.1
+
+- Wire up 
+
 ## 1.6.0
 
 - Update for API 1.20
