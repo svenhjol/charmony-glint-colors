@@ -8,4 +8,7 @@ import svenhjol.charmony.glint_colors.GlintColorsMod;
 public final class Tags {
     public static final TagKey<Item> COLORED_DYES = TagKey.create(Registries.ITEM,
         GlintColorsMod.id("colored_dyes"));
+
+    public static final TagKey<Item> ENCHANTABLES = TagKey.create(Registries.ITEM,
+        GlintColorsMod.id("enchantables"));
 }

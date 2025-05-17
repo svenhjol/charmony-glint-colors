@@ -25,6 +25,15 @@ public final class GlintColorTemplates extends SidedFeature {
     )
     private static double lootChance = 0.2d;
 
+    @Configurable(
+        name = "Allow unenchanted enchantable items",
+        description = """
+            If true, a template can be applied to an item that supports enchantments but does not yet have an enchantment.
+            If false, a template can only be applied to an item that has an enchantment.""",
+        requireRestart = false
+    )
+    private static boolean allowUnenchantedItems = false;
+
     public GlintColorTemplates(Mod mod) {
         super(mod);
         registers = new Registers(this);
@@ -41,5 +50,9 @@ public final class GlintColorTemplates extends SidedFeature {
 
     public double lootChance() {
         return Mth.clamp(lootChance, 0.0d, 1.0d);
+    }
+
+    public boolean allowUnenchantedItems() {
+        return allowUnenchantedItems;
     }
 }

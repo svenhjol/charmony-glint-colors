@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -86,7 +87,9 @@ public class Registers extends Setup<GlintColorTemplates> {
         var slot2 = input.getItem(2);
 
         if (slot0.is(item.get())) {
-            if (!slot1.isEnchanted() || !slot2.is(Tags.COLORED_DYES)) {
+            var slot1Valid = (feature().allowUnenchantedItems() && slot1.is(Tags.ENCHANTABLES) || (slot1.isEnchanted() || slot1.is(Items.ENCHANTED_BOOK)));
+            var slot2Valid = slot2.is(Tags.COLORED_DYES);
+            if (!slot1Valid || !slot2Valid) {
                 instance.output.setItem(0, ItemStack.EMPTY);
                 return true;
             }
