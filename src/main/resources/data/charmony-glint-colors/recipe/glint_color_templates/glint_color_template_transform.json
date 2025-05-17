@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": "#c:dyes",
-  "base": "#c:enchantables",
+  "base": "#charmony-glint-colors:enchantables",
   "result": {
     "count": 1,
     "id": "charmony-glint-colors:glint_color_template"
