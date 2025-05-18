@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.3
+
+- Restore some glint textures back to old.
+
 ## 1.6.2
 
 - Config option to apply to unenchanted but enchantable items.
