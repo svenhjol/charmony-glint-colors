@@ -4,7 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import svenhjol.charmony.glint_colors.GlintColorsMod;
 import svenhjol.charmony.glint_colors.common.features.glint_color_templates.GlintColorTemplates;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.GlintColors;
-import svenhjol.charmony.core.enums.Side;
+import svenhjol.charmony.api.core.Side;
 
 public final class CommonInitializer implements ModInitializer {
     @Override

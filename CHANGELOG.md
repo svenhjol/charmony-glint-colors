@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.0
+
+- Update for Charmony and API.
+
 ## 1.6.3
 
 - Restore some glint textures back to old.

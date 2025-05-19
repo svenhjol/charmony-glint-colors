@@ -18,6 +18,7 @@ public class LayerRenderStateMixin implements FoilColorHolder {
     @Unique
     DyeColor dyeColor;
 
+    @SuppressWarnings("AddedMixinMembersNamePattern")
     @Unique
     @Override
     public void setFoilColorFromItemStack(ItemStack stack) {

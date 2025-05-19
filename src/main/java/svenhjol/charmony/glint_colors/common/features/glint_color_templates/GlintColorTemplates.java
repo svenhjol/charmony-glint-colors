@@ -2,13 +2,14 @@ package svenhjol.charmony.glint_colors.common.features.glint_color_templates;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import svenhjol.charmony.core.annotations.Configurable;
-import svenhjol.charmony.core.annotations.FeatureDefinition;
+import svenhjol.charmony.api.core.Configurable;
+import svenhjol.charmony.api.core.FeatureDefinition;
 import svenhjol.charmony.core.base.Mod;
 import svenhjol.charmony.core.base.SidedFeature;
-import svenhjol.charmony.core.enums.Side;
+import svenhjol.charmony.api.core.Side;
 
 @FeatureDefinition(side = Side.Common, description = "Smithing template that changes the glint color of any enchanted item.")
+@SuppressWarnings({"FieldMayBeFinal", "FieldCanBeLocal"})
 public final class GlintColorTemplates extends SidedFeature {
     public final Registers registers;
     public final Advancements advancements;

@@ -1,7 +1,7 @@
 package svenhjol.charmony.glint_colors.client.mixins;
 
 import svenhjol.charmony.core.base.MixinConfig;
-import svenhjol.charmony.core.enums.Side;
+import svenhjol.charmony.api.core.Side;
 import svenhjol.charmony.glint_colors.GlintColorsMod;
 
 public class ClientMixinConfig extends MixinConfig {

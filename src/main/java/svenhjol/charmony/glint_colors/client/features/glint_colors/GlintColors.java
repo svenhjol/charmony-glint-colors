@@ -1,17 +1,18 @@
 package svenhjol.charmony.glint_colors.client.features.glint_colors;
 
 import net.minecraft.world.item.DyeColor;
-import svenhjol.charmony.core.annotations.Configurable;
-import svenhjol.charmony.core.annotations.FeatureDefinition;
+import svenhjol.charmony.api.core.Configurable;
+import svenhjol.charmony.api.core.FeatureDefinition;
 import svenhjol.charmony.core.base.Mod;
 import svenhjol.charmony.core.base.SidedFeature;
-import svenhjol.charmony.core.enums.Side;
+import svenhjol.charmony.api.core.Side;
 
 import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Supplier;
 
 @FeatureDefinition(side = Side.Client, canBeDisabled = false)
+@SuppressWarnings({"FieldMayBeFinal", "FieldCanBeLocal"})
 public final class GlintColors extends SidedFeature {
     public final Handlers handlers;
     public final Registers registers;
