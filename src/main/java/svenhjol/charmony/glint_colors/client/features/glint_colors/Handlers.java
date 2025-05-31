@@ -6,11 +6,11 @@ import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.TriState;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import svenhjol.charmony.api.core.Color;
+import svenhjol.charmony.core.Charmony;
 import svenhjol.charmony.core.base.Setup;
-import svenhjol.charmony.glint_colors.GlintColorsMod;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -43,6 +43,11 @@ public class Handlers extends Setup<GlintColors> {
         this.targetColor = dyeColor;
     }
 
+    @Nullable
+    public DyeColor getTargetColor() {
+        return targetColor;
+    }
+
     public void setBuilders(@Nullable SequencedMap<RenderType, ByteBufferBuilder> builders) {
         this.builders = builders;
         if (initialized || builders == null) return;
@@ -56,8 +61,8 @@ public class Handlers extends Setup<GlintColors> {
                 itemTexture = ItemRenderer.ENCHANTED_GLINT_ITEM;
                 entityTexture = ItemRenderer.ENCHANTED_GLINT_ARMOR;
             } else {
-                itemTexture = GlintColorsMod.id("textures/misc/enchanted_glints/" + colorName + "_glint.png");
-                entityTexture = GlintColorsMod.id("textures/misc/enchanted_glints/" + colorName + "_glint.png");
+                itemTexture = Charmony.id("textures/misc/enchanted_glints/" + colorName + "_glint.png");
+                entityTexture = Charmony.id("textures/misc/enchanted_glints/" + colorName + "_glint.png");
             }
 
             ITEM_TEXTURES.put(dyeColor, itemTexture);
@@ -77,7 +82,7 @@ public class Handlers extends Setup<GlintColors> {
             1536,
             RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
+                .setTextureState(new RenderStateShard.TextureStateShard(texture, false))
                 .setTexturingState(RenderStateShard.GLINT_TEXTURING)
                 .createCompositeState(false));
 
@@ -90,7 +95,7 @@ public class Handlers extends Setup<GlintColors> {
             1536,
             RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
+                .setTextureState(new RenderStateShard.TextureStateShard(texture, false))
                 .setTexturingState(RenderStateShard.GLINT_TEXTURING)
                 .setOutputState(RenderStateShard.ITEM_ENTITY_TARGET)
                 .createCompositeState(false));
@@ -104,7 +109,7 @@ public class Handlers extends Setup<GlintColors> {
             1536,
             RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
+                .setTextureState(new RenderStateShard.TextureStateShard(texture, false))
                 .setTexturingState(RenderStateShard.ENTITY_GLINT_TEXTURING)
                 .setOutputState(RenderStateShard.ITEM_ENTITY_TARGET)
                 .createCompositeState(false));
@@ -118,7 +123,7 @@ public class Handlers extends Setup<GlintColors> {
             1536,
             RenderPipelines.GLINT,
             RenderType.CompositeState.builder()
-                .setTextureState(new RenderStateShard.TextureStateShard(texture, TriState.DEFAULT, false))
+                .setTextureState(new RenderStateShard.TextureStateShard(texture, false))
                 .setTexturingState(RenderStateShard.ENTITY_GLINT_TEXTURING)
                 .setLayeringState(RenderStateShard.VIEW_OFFSET_Z_LAYERING)
                 .createCompositeState(false));
@@ -154,5 +159,9 @@ public class Handlers extends Setup<GlintColors> {
     private DyeColor itemOrOverrideColor() {
         var override = GlintColors.feature().glintColorOverride();
         return override.orElseGet(() -> targetColor);
+    }
+
+    public Color hook() {
+        return new Color(DyeColor.PURPLE);
     }
 }

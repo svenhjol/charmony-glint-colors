@@ -3,7 +3,7 @@
   "key": {
     "#": "minecraft:diamond",
     "O": "minecraft:obsidian",
-    "S": "charmony-glint-colors:glint_color_template"
+    "S": "charmony:glint_color_template"
   },
   "pattern": [
     "#S#",
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 2,
-    "id": "charmony-glint-colors:glint_color_template"
+    "id": "charmony:glint_color_template"
   }
 }

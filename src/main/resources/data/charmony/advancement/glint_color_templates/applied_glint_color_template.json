@@ -1,20 +1,20 @@
 {
-  "parent": "charmony-glint-colors:glint_color_templates/obtained_glint_color_template",
+  "parent": "charmony:glint_color_templates/obtained_glint_color_template",
   "display": {
     "icon": {
       "id": "minecraft:netherite_sword",
       "components": {
         "minecraft:enchantment_glint_override": true,
-        "charmony-glint-colors:glint_color": {
+        "charmony:glint_color": {
           "color": "yellow"
         }
       }
     },
     "title": {
-      "translate": "advancements.charmony-glint-colors.applied_glint_color_template.title"
+      "translate": "advancements.charmony.applied_glint_color_template.title"
     },
     "description": {
-      "translate": "advancements.charmony-glint-colors.applied_glint_color_template.description"
+      "translate": "advancements.charmony.applied_glint_color_template.description"
     },
     "frame": "challenge",
     "show_toast": true,

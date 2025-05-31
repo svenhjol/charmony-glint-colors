@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "charmony-glint-colors:glint_color_template"
+              "charmony:glint_color_template"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "charmony-glint-colors:glint_color_templates/glint_color_template"
+        "recipe": "charmony:glint_color_templates/glint_color_template"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "charmony-glint-colors:glint_color_templates/glint_color_template"
+      "charmony:glint_color_templates/glint_color_template"
     ]
   }
 }

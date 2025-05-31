@@ -9,6 +9,7 @@
   },
   "client": [
     "glint_colors.EquipmentLayerRendererMixin",
+    "glint_colors.GuiGraphicsMixin",
     "glint_colors.ItemModelsMixin",
     "glint_colors.LayerRenderStateMixin",
     "glint_colors.RenderBuffersMixin",

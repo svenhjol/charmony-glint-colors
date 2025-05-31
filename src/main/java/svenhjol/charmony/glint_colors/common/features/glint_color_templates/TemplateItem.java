@@ -33,6 +33,6 @@ public class TemplateItem extends SmithingTemplateItem {
     }
 
     private static MutableComponent makeText(String id) {
-        return Component.translatable("smithing_template.charmony-glint-colors.glint_color_" + id);
+        return Component.translatable("smithing_template.charmony.glint_color_" + id);
     }
 }

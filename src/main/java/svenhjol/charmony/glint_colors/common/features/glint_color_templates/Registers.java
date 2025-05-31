@@ -16,11 +16,11 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import svenhjol.charmony.core.base.Setup;
-import svenhjol.charmony.core.common.CommonRegistry;
 import svenhjol.charmony.api.events.SmithingTableEvents;
 import svenhjol.charmony.api.events.SmithingTableEvents.SmithingTableInstance;
-import svenhjol.charmony.glint_colors.GlintColorsMod;
+import svenhjol.charmony.core.Charmony;
+import svenhjol.charmony.core.base.Setup;
+import svenhjol.charmony.core.common.CommonRegistry;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.GlintColors;
 import svenhjol.charmony.glint_colors.common.features.glint_colors.Tags;
 
@@ -40,10 +40,10 @@ public class Registers extends Setup<GlintColorTemplates> {
         var registry = CommonRegistry.forFeature(feature);
 
         emptyDyes.addAll(List.of(
-            GlintColorsMod.id("container/slot/empty_dye_01"),
-            GlintColorsMod.id("container/slot/empty_dye_02"),
-            GlintColorsMod.id("container/slot/empty_dye_03"),
-            GlintColorsMod.id("container/slot/empty_dye_04")
+            Charmony.id("container/slot/empty_dye_01"),
+            Charmony.id("container/slot/empty_dye_02"),
+            Charmony.id("container/slot/empty_dye_03"),
+            Charmony.id("container/slot/empty_dye_04")
         ));
 
         item = registry.item(ITEM_ID, TemplateItem::new);

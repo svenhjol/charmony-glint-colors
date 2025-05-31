@@ -9,7 +9,7 @@
   "authors": [
     "svenhjol"
   ],
-  "icon": "assets/charmony-glint-colors/textures/gui/sprites/icon.png",
+  "icon": "assets/charmony/textures/gui/sprites/charmony-glint-colors.png",
   "license": "MIT",
   "environment": "*",
   "accessWidener": "charmony-glint-colors.accesswidener",
