@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import svenhjol.charmony.api.core.Color;
 import svenhjol.charmony.core.Charmony;
 import svenhjol.charmony.core.base.Setup;
 
@@ -159,9 +158,5 @@ public class Handlers extends Setup<GlintColors> {
     private DyeColor itemOrOverrideColor() {
         var override = GlintColors.feature().glintColorOverride();
         return override.orElseGet(() -> targetColor);
-    }
-
-    public Color hook() {
-        return new Color(DyeColor.PURPLE);
     }
 }
