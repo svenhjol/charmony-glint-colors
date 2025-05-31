@@ -5,6 +5,3 @@ accessible method net/minecraft/client/renderer/RenderType$CompositeState$Compos
 accessible method net/minecraft/client/renderer/RenderType$CompositeState$CompositeStateBuilder setOutputState (Lnet/minecraft/client/renderer/RenderStateShard$OutputStateShard;)Lnet/minecraft/client/renderer/RenderType$CompositeState$CompositeStateBuilder;
 accessible method net/minecraft/client/renderer/RenderType$CompositeState$CompositeStateBuilder createCompositeState (Z)Lnet/minecraft/client/renderer/RenderType$CompositeState;
 accessible method net/minecraft/client/renderer/RenderType$CompositeState$CompositeStateBuilder setLayeringState (Lnet/minecraft/client/renderer/RenderStateShard$LayeringStateShard;)Lnet/minecraft/client/renderer/RenderType$CompositeState$CompositeStateBuilder;
-accessible class net/minecraft/client/gui/render/GuiRenderer$AtlasPosition
-accessible field net/minecraft/client/gui/render/GuiRenderer$AtlasPosition u F
-accessible field net/minecraft/client/gui/render/GuiRenderer$AtlasPosition v F
