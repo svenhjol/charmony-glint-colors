@@ -15,13 +15,10 @@
   "accessWidener": "charmony-glint-colors.accesswidener",
   "entrypoints": {
     "main": [
-        "svenhjol.charmony.glint_colors.common.CommonInitializer"
+      "svenhjol.charmony.glint_colors.common.CommonInitializer"
     ],
     "client": [
-        "svenhjol.charmony.glint_colors.client.ClientInitializer"
-    ],
-    "modmenu": [
-        "svenhjol.charmony.glint_colors.integration.ModMenuPlugin"
+      "svenhjol.charmony.glint_colors.client.ClientInitializer"
     ]
   },
 
