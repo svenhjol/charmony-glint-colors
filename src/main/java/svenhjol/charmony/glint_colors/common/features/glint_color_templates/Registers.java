@@ -3,7 +3,6 @@ package svenhjol.charmony.glint_colors.common.features.glint_color_templates;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableSource;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
@@ -11,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -31,7 +31,6 @@ import java.util.function.Supplier;
 public class Registers extends Setup<GlintColorTemplates> {
     public final List<ResourceLocation> emptyDyes = new ArrayList<>();
     public final Supplier<TemplateItem> item;
-    public final Supplier<ResourceKey<LootTable>> lootTable;
 
     public static final String ITEM_ID = "glint_color_template";
 
@@ -47,7 +46,6 @@ public class Registers extends Setup<GlintColorTemplates> {
         ));
 
         item = registry.item(ITEM_ID, TemplateItem::new);
-        lootTable = () -> ResourceKey.create(Registries.LOOT_TABLE, feature().lootTable());
     }
 
     @Override
@@ -61,13 +59,25 @@ public class Registers extends Setup<GlintColorTemplates> {
     }
 
     private void handleLootTableModify(ResourceKey<LootTable> key, LootTable.Builder builder, LootTableSource source, HolderLookup.Provider provider) {
-        if (source.isBuiltin() && key == lootTable.get()) {
-            var pool = LootPool.lootPool()
-                .setRolls(ConstantValue.exactly(1))
-                .when(LootItemRandomChanceCondition.randomChance((float)feature().lootChance()))
-                .add(LootItem.lootTableItem(item.get()).setWeight(1));
-            builder.pool(pool.build());
+        if (!source.isBuiltin()) return;
+
+        if (key == BuiltInLootTables.ANCIENT_CITY && feature().ancientCityLootChance() > 0) {
+            doModifyLootTable(builder, feature().ancientCityLootChance());
         }
+        if (key == BuiltInLootTables.SIMPLE_DUNGEON && feature().dungeonLootChance() > 0) {
+            doModifyLootTable(builder, feature().dungeonLootChance());
+        }
+        if (key == BuiltInLootTables.STRONGHOLD_LIBRARY && feature().strongholdLootChance() > 0) {
+            doModifyLootTable(builder, feature().strongholdLootChance());
+        }
+    }
+
+    private void doModifyLootTable(LootTable.Builder builder, double chance) {
+        var pool = LootPool.lootPool()
+            .setRolls(ConstantValue.exactly(1))
+            .when(LootItemRandomChanceCondition.randomChance((float)chance))
+            .add(LootItem.lootTableItem(item.get()).setWeight(1));
+        builder.pool(pool.build());
     }
 
     private InteractionResult handleCanTake(SmithingTableInstance instance, Player player) {

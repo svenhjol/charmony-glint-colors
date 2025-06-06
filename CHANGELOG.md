@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.8.1
+
+- Rework and balance all glint layer textures.
+- Black dye now has a rainbow color effect.
+- Option for templates to appear in three loot tables with custom loot chance.
+
 ## 1.8.0
 
 - Update for 1.21.6.
