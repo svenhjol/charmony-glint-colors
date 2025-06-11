@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.2
+
+- Update API implementation methods.
+
 ## 1.8.1
 
 - Rework and balance all glint layer textures.
