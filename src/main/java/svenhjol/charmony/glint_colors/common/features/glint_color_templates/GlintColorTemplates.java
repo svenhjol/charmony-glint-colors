@@ -14,7 +14,7 @@ public final class GlintColorTemplates extends SidedFeature {
     public final Advancements advancements;
 
     @Configurable(
-        name = "Ancient city loot chance",
+        name = "Ancient City loot chance",
         description = """
             Chance (out of 1.0) of a colored glint smithing template appearing in ancient city loot.
             A value of zero prevents the template from being added."""
