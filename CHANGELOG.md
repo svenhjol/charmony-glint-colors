@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.4
+
+- Fix mixin for 1.21.7.
+
 ## 1.8.3
 
 - Typo.
