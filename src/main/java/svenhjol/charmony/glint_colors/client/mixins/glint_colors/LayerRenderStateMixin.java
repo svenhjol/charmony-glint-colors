@@ -1,7 +1,7 @@
 package svenhjol.charmony.glint_colors.client.mixins.glint_colors;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -26,19 +26,19 @@ public class LayerRenderStateMixin implements FoilColorHolder {
     }
 
     @Inject(
-        method = "render",
+        method = "submit",
         at = @At("HEAD")
     )
-    public void hookRenderStart(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
+    public void hookRenderStart(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, int j, int k, CallbackInfo ci) {
         GlintColors.feature().handlers.setTargetColor(dyeColor);
     }
 
 
     @Inject(
-        method = "render",
+        method = "submit",
         at = @At("TAIL")
     )
-    public void hookRenderFinish(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
+    public void hookRenderFinish(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, int j, int k, CallbackInfo ci) {
         GlintColors.feature().handlers.setTargetColor(null);
     }
 }
