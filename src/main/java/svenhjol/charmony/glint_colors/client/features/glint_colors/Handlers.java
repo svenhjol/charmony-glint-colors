@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.item.ItemStackRenderState.FoilType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -12,10 +13,7 @@ import svenhjol.charmony.core.Charmony;
 import svenhjol.charmony.core.base.Setup;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.SequencedMap;
+import java.util.*;
 
 public class Handlers extends Setup<GlintColors> {
     public final Map<DyeColor, ResourceLocation> ITEM_TEXTURES = new HashMap<>();
@@ -25,6 +23,7 @@ public class Handlers extends Setup<GlintColors> {
     public final Map<DyeColor, RenderType> ENTITY_GLINT = new HashMap<>();
     public final Map<DyeColor, RenderType> ARMOR_ENTITY_GLINT = new HashMap<>();
 
+    private final List<String> colorNames;
     private SequencedMap<RenderType, ByteBufferBuilder> builders;
     private @Nullable DyeColor targetColor;
 
@@ -32,6 +31,10 @@ public class Handlers extends Setup<GlintColors> {
 
     public Handlers(GlintColors feature) {
         super(feature);
+
+        // Generate a cached list of all the dye color names for comparing to foilType enums.
+        colorNames = Arrays.stream(DyeColor.values()).map(
+            d -> d.getSerializedName().toUpperCase(Locale.ROOT)).toList();
     }
 
     public void setTargetStack(@Nullable ItemStack targetStack) {
@@ -45,6 +48,32 @@ public class Handlers extends Setup<GlintColors> {
     @Nullable
     public DyeColor getTargetColor() {
         return targetColor;
+    }
+
+    /**
+     * Helper method to get a dye color from a custom foilType.
+     * @see svenhjol.charmony.glint_colors.client.mixins.glint_colors.FoilTypeMixin
+     */
+    public Optional<DyeColor> dyeColorFromFoilType(FoilType foilType) {
+        var colorName = foilType.name()
+            .toUpperCase(Locale.ROOT)
+            .replace("STANDARD_", "");
+
+        if (colorNames.contains(colorName)) {
+            return Optional.of(DyeColor.valueOf(colorName));
+        }
+
+        return Optional.empty();
+    }
+
+    public FoilType foilTypeFromDyeColor(DyeColor color) {
+        var foilTypeName = "STANDARD_" + color.getSerializedName().toUpperCase(Locale.ROOT);
+
+        try {
+            return FoilType.valueOf(foilTypeName);
+        } catch (Exception e) {
+            return FoilType.NONE;
+        }
     }
 
     public void setBuilders(@Nullable SequencedMap<RenderType, ByteBufferBuilder> builders) {
@@ -157,6 +186,6 @@ public class Handlers extends Setup<GlintColors> {
 
     private DyeColor itemOrOverrideColor() {
         var override = GlintColors.feature().glintColorOverride();
-        return override.orElseGet(() -> targetColor);
+        return override.orElseGet(this::getTargetColor);
     }
 }

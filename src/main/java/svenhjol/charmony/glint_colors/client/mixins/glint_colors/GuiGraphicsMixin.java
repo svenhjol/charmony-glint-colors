@@ -16,6 +16,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import svenhjol.charmony.glint_colors.client.features.glint_colors.GlintColors;
 
+/**
+ * Note: as of 1.21.9 this mixin may no longer be required.
+ */
 @Mixin(GuiGraphics.class)
 public class GuiGraphicsMixin {
 
