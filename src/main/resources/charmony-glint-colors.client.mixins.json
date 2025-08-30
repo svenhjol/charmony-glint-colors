@@ -12,7 +12,6 @@
     "glint_colors.FoilTypeMixin",
     "glint_colors.GuiGraphicsMixin",
     "glint_colors.ItemFeatureRendererMixin",
-    "glint_colors.LayerRenderStateMixin",
     "glint_colors.ModelWrappersMixin",
     "glint_colors.RenderBuffersMixin",
     "glint_colors.RenderTypeMixin"
