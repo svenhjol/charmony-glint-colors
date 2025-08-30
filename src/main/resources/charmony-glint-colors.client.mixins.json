@@ -15,8 +15,6 @@
     "glint_colors.LayerRenderStateMixin",
     "glint_colors.ModelWrappersMixin",
     "glint_colors.RenderBuffersMixin",
-    "glint_colors.RenderTypeMixin",
-    "glint_colors.ThrownTridentRendererMixin",
-    "glint_colors.ThrownTridentRenderStateMixin"
+    "glint_colors.RenderTypeMixin"
   ]
 }
