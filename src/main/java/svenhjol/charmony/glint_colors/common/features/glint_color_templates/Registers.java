@@ -98,6 +98,8 @@ public class Registers extends Setup<GlintColorTemplates> {
 
         if (slot0.is(item.get())) {
             var slot1Valid = (feature().allowUnenchantedItems() && slot1.is(Tags.ENCHANTABLES) || (slot1.isEnchanted() || slot1.is(Items.ENCHANTED_BOOK)));
+            slot1Valid = slot1Valid && !(slot1.is(Items.SHIELD) || slot1.is(Items.TRIDENT));
+
             var slot2Valid = slot2.is(Tags.COLORED_DYES);
             if (!slot1Valid || !slot2Valid) {
                 instance.output.setItem(0, ItemStack.EMPTY);

@@ -37,6 +37,6 @@ public class EquipmentLayerRendererMixin {
         at = @At("TAIL")
     )
     private <S> void hookRenderLayersEnd(EquipmentClientInfo.LayerType layerType, ResourceKey<EquipmentAsset> resourceKey, Model<? super S> model, S object, ItemStack itemStack, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, @Nullable ResourceLocation resourceLocation, int j, int k, CallbackInfo ci) {
-        GlintColors.feature().handlers.setTargetStack(null);
+//        GlintColors.feature().handlers.setTargetStack(null);
     }
 }

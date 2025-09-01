@@ -36,32 +36,14 @@ public class GuiGraphicsMixin {
         )
     )
     private TrackingItemStackRenderState testState(Operation<TrackingItemStackRenderState> original, @Local(argsOnly = true) ItemStack stack) {
-        var x = original.call();
+        var called = original.call();
         var targetColor = GlintColors.feature().handlers.getTargetColor();
         if (targetColor != null) {
             // Add another identity element to this render state.
             // All render states that share an identity are rendererd in batch,
             // so we have to make each color its own unique identity.
-            x.appendModelIdentityElement(String.valueOf(stack.hashCode()));
+            called.appendModelIdentityElement(String.valueOf(targetColor));
         }
-        return x;
+        return called;
     }
-
-//    @WrapOperation(
-//        method = "renderItem(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;III)V",
-//        at = @At(
-//            value = "NEW",
-//            target = "(Ljava/lang/String;Lorg/joml/Matrix3x2f;Lnet/minecraft/client/renderer/item/TrackingItemStackRenderState;IILnet/minecraft/client/gui/navigation/ScreenRectangle;)Lnet/minecraft/client/gui/render/state/GuiItemRenderState;"
-//        )
-//    )
-//    private GuiItemRenderState newState(String string, Matrix3x2f matrix3x2f, TrackingItemStackRenderState trackingItemStackRenderState, int i, int j, ScreenRectangle screenRectangle, Operation<GuiItemRenderState> original, @Local(argsOnly = true) ItemStack stack) {
-//        var targetColor = GlintColors.feature().handlers.getTargetColor();
-//        if (targetColor != null) {
-//            // Add another identity element to this render state.
-//            // All render states that share an identity are rendererd in batch,
-//            // so we have to make each color its own unique identity.
-//            trackingItemStackRenderState.appendModelIdentityElement(String.valueOf(targetColor));
-//        }
-//        return original.call(string, matrix3x2f, trackingItemStackRenderState, i, j, screenRectangle);
-//    }
 }

@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import svenhjol.charmony.glint_colors.client.features.glint_colors.FoilColorHolder;
 import svenhjol.charmony.glint_colors.client.features.glint_colors.GlintColors;
 
 @Mixin({
@@ -42,7 +43,8 @@ public class ModelWrappersMixin {
         method = "update",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/item/ItemStackRenderState;appendModelIdentityElement(Ljava/lang/Object;)V"
+            target = "Lnet/minecraft/client/renderer/item/ItemStackRenderState;appendModelIdentityElement(Ljava/lang/Object;)V",
+            ordinal = 1
         )
     )
     private void hookAppendModelIdentityElement(ItemStackRenderState instance, Object foilType, Operation<Void> original,
@@ -59,14 +61,10 @@ public class ModelWrappersMixin {
         method = "update",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/item/ItemStackRenderState;appendModelIdentityElement(Ljava/lang/Object;)V",
-            ordinal = 1
+            target = "Lnet/minecraft/client/renderer/item/ItemStackRenderState$LayerRenderState;setFoilType(Lnet/minecraft/client/renderer/item/ItemStackRenderState$FoilType;)V"
         )
     )
-    private void hookAfterAppendModelIdentityElement(ItemStackRenderState state, ItemStack itemStack, ItemModelResolver itemModelResolver, ItemDisplayContext itemDisplayContext, ClientLevel clientLevel, ItemOwner itemOwner, int i, CallbackInfo ci) {
-        var dyeColor = GlintColors.feature().common.get().handlers.get(itemStack);
-        if (dyeColor != null) {
-            state.appendModelIdentityElement(String.valueOf(dyeColor));
-        }
+    private void hookUpdateSetFoilColor(ItemStackRenderState itemStackRenderState, ItemStack itemStack, ItemModelResolver itemModelResolver, ItemDisplayContext itemDisplayContext, ClientLevel clientLevel, ItemOwner itemOwner, int i, CallbackInfo ci, @Local ItemStackRenderState.LayerRenderState layerRenderState) {
+        ((FoilColorHolder)layerRenderState).setFoilColorFromItemStack(itemStack);
     }
 }
